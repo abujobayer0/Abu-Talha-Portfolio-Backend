@@ -1,7 +1,7 @@
-import httpStatus from 'http-status';
-import catchAsync from '../../utils/catchAsync';
-import sendResponse from '../../utils/sendResponse';
-import { AdminService } from './admin.service';
+import httpStatus from "http-status";
+import catchAsync from "../../utils/catchAsync";
+import sendResponse from "../../utils/sendResponse";
+import { AdminService } from "./admin.service";
 
 const createAdmin = catchAsync(async (req, res) => {
   const result = await AdminService.createAdminIntoDB(req.body);
@@ -9,7 +9,7 @@ const createAdmin = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Admin is created successfully',
+    message: "Admin is created successfully",
     data: result,
   });
 });
@@ -21,7 +21,7 @@ const updateAdmin = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Admin is update successfully',
+    message: "Admin is update successfully",
     data: result,
   });
 });
@@ -32,19 +32,20 @@ const getAdmin = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Get admin successfully',
+    message: "Get admin successfully",
     data: result,
   });
 });
 
 // login
 const loginAdmin = catchAsync(async (req, res) => {
+  console.log(req.body);
   const result = await AdminService.loginAdmin(req.body);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Login successful',
+    message: "Login successful",
     data: result,
   });
 });

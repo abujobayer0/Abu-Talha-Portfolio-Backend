@@ -1,7 +1,7 @@
-import httpStatus from 'http-status';
-import catchAsync from '../../utils/catchAsync';
-import sendResponse from '../../utils/sendResponse';
-import { SkillService } from './skills.service';
+import httpStatus from "http-status";
+import catchAsync from "../../utils/catchAsync";
+import sendResponse from "../../utils/sendResponse";
+import { SkillService } from "./skills.service";
 
 // Create a new skill
 const createSkill = catchAsync(async (req, res) => {
@@ -10,7 +10,7 @@ const createSkill = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Skill is created successfully',
+    message: "Skill is created successfully",
     data: result,
   });
 });
@@ -25,7 +25,7 @@ const getAllSkills = catchAsync(async (req, res) => {
     success: true,
     message: category
       ? `Skills for category: ${category}`
-      : 'All skills retrieved successfully',
+      : "All skills retrieved successfully",
     data: result,
   });
 });
@@ -37,7 +37,7 @@ const getSkill = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Get skill successfully',
+    message: "Get skill successfully",
     data: result,
   });
 });
@@ -49,7 +49,7 @@ const updateSkill = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Skill updated successfully',
+    message: "Skill updated successfully",
     data: result,
   });
 });
@@ -61,7 +61,7 @@ const deleteSkill = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Skill deleted successfully',
+    message: "Skill deleted successfully",
     data: result,
   });
 });

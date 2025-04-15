@@ -24,7 +24,7 @@ router.get("/:id", BlogController.getBlog);
 // Update blog by ID
 router.patch(
   "/:id",
-  // Auth(USER_ROLE.ADMIN),
+  Auth(USER_ROLE.ADMIN),
   validateRequest(BlogsValidation.updateBlogSchema),
   BlogController.updateBlog
 );
