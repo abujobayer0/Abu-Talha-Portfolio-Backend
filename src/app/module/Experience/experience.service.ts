@@ -1,5 +1,5 @@
-import { TExperience } from './experience.interface';
-import { Experience } from './experience.model';
+import { TExperience } from "./experience.interface";
+import { Experience } from "./experience.model";
 
 const createExperienceIntoDB = async (payload: TExperience) => {
   const result = await Experience.create(payload);
@@ -8,8 +8,9 @@ const createExperienceIntoDB = async (payload: TExperience) => {
 
 const getAllExperiencesFromDB = async () => {
   const result = await Experience.find()
-    .sort('-createdAt')
-    .populate('technologies');
+    .sort("-createdAt")
+    .populate("technologies");
+
   return result;
 };
 

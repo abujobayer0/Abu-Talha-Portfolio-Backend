@@ -17,8 +17,8 @@ const createExperienceIntoDB = (payload) => __awaiter(void 0, void 0, void 0, fu
 });
 const getAllExperiencesFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield experience_model_1.Experience.find()
-        .sort('-createdAt')
-        .populate('technologies');
+        .sort("-createdAt")
+        .populate("technologies");
     return result;
 });
 const getExperienceFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {

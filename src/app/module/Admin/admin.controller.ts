@@ -39,7 +39,6 @@ const getAdmin = catchAsync(async (req, res) => {
 
 // login
 const loginAdmin = catchAsync(async (req, res) => {
-  console.log(req.body);
   const result = await AdminService.loginAdmin(req.body);
 
   sendResponse(res, {

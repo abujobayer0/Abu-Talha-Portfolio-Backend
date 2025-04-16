@@ -47,7 +47,6 @@ const getAdmin = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 
 }));
 // login
 const loginAdmin = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.body);
     const result = yield admin_service_1.AdminService.loginAdmin(req.body);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,

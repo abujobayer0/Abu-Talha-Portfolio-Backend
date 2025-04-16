@@ -3,6 +3,7 @@ import { z } from "zod";
 const createBlogSchema = z.object({
   body: z.object({
     content: z.string().nonempty(),
+    title: z.string().nonempty(),
     imageUrl: z.string().optional(),
   }),
 });
@@ -10,6 +11,7 @@ const createBlogSchema = z.object({
 const updateBlogSchema = z.object({
   body: z.object({
     content: z.string().optional(),
+    title: z.string().optional(),
     imageUrl: z.string().optional(),
   }),
 });

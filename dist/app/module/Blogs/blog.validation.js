@@ -5,12 +5,14 @@ const zod_1 = require("zod");
 const createBlogSchema = zod_1.z.object({
     body: zod_1.z.object({
         content: zod_1.z.string().nonempty(),
+        title: zod_1.z.string().nonempty(),
         imageUrl: zod_1.z.string().optional(),
     }),
 });
 const updateBlogSchema = zod_1.z.object({
     body: zod_1.z.object({
         content: zod_1.z.string().optional(),
+        title: zod_1.z.string().optional(),
         imageUrl: zod_1.z.string().optional(),
     }),
 });

@@ -8,12 +8,14 @@ import express, { Application, Request, Response } from "express";
 import router from "./app/routes";
 import notFound from "./app/middlewares/notFound";
 import globalErrorHandler from "./app/middlewares/globalErrorhandler";
+import morgan from "morgan";
 
 const app: Application = express();
 
 //parsers
 app.use(express.json());
 app.use(cookieParser());
+app.use(morgan("dev"));
 
 app.use(cors({ origin: ["http://localhost:3000"], credentials: true }));
 

@@ -5,9 +5,13 @@ const mongoose_1 = require("mongoose");
 const blogSchema = new mongoose_1.Schema({
     author: {
         type: mongoose_1.Schema.Types.ObjectId,
-        ref: 'Admin',
+        ref: "Admin",
     },
     content: {
+        type: String,
+        required: true,
+    },
+    title: {
         type: String,
         required: true,
     },
@@ -15,4 +19,4 @@ const blogSchema = new mongoose_1.Schema({
         type: String,
     },
 }, { timestamps: true });
-exports.Blog = (0, mongoose_1.model)('Blog', blogSchema);
+exports.Blog = (0, mongoose_1.model)("Blog", blogSchema);
