@@ -1,7 +1,7 @@
-import httpStatus from 'http-status';
-import catchAsync from '../../utils/catchAsync';
-import sendResponse from '../../utils/sendResponse';
-import { BlogService } from './blog.service';
+import httpStatus from "http-status";
+import catchAsync from "../../utils/catchAsync";
+import sendResponse from "../../utils/sendResponse";
+import { BlogService } from "./blog.service";
 
 const createBlog = catchAsync(async (req, res) => {
   const id = req.user.id;
@@ -10,19 +10,20 @@ const createBlog = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Blog created successfully',
+    message: "Blog created successfully",
     data: result,
   });
 });
 
 const getAllBlogs = catchAsync(async (req, res) => {
-  const result = await BlogService.getAllBlogsFromDB();
+  const { result, meta } = await BlogService.getAllBlogsFromDB(req.query);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Blogs fetched successfully',
+    message: "Blogs fetched successfully",
     data: result,
+    meta: meta,
   });
 });
 
@@ -32,7 +33,7 @@ const getBlog = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Blog fetched successfully',
+    message: "Blog fetched successfully",
     data: result,
   });
 });
@@ -43,7 +44,7 @@ const updateBlog = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Blog updated successfully',
+    message: "Blog updated successfully",
     data: result,
   });
 });
@@ -54,7 +55,7 @@ const deleteBlog = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Blog deleted successfully',
+    message: "Blog deleted successfully",
     data: result,
   });
 });

@@ -8,19 +8,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlogService = void 0;
+const queryBuilder_1 = __importDefault(require("../../builder/queryBuilder"));
 const blog_model_1 = require("./blog.model");
 const createBlogIntoDB = (payload, id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield blog_model_1.Blog.create(Object.assign(Object.assign({}, payload), { author: id }));
     return result;
 });
-const getAllBlogsFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield blog_model_1.Blog.find().populate('author').sort('-createdAt');
-    return result;
+const getAllBlogsFromDB = (query) => __awaiter(void 0, void 0, void 0, function* () {
+    const blogQueryBuilder = new queryBuilder_1.default(blog_model_1.Blog.find().populate("author"), query)
+        .search(["title", "content"])
+        .sort()
+        .fields()
+        .filter()
+        .paginate();
+    const result = yield blogQueryBuilder.modelQuery;
+    const meta = yield blogQueryBuilder.countTotal();
+    return { result, meta };
 });
 const getBlogFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield blog_model_1.Blog.findById(id).populate('author');
+    const result = yield blog_model_1.Blog.findById(id).populate("author");
     return result;
 });
 const updateBlogInDB = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {

@@ -23,17 +23,18 @@ const createBlog = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: 'Blog created successfully',
+        message: "Blog created successfully",
         data: result,
     });
 }));
 const getAllBlogs = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield blog_service_1.BlogService.getAllBlogsFromDB();
+    const { result, meta } = yield blog_service_1.BlogService.getAllBlogsFromDB(req.query);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: 'Blogs fetched successfully',
+        message: "Blogs fetched successfully",
         data: result,
+        meta: meta,
     });
 }));
 const getBlog = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -41,7 +42,7 @@ const getBlog = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: 'Blog fetched successfully',
+        message: "Blog fetched successfully",
         data: result,
     });
 }));
@@ -50,7 +51,7 @@ const updateBlog = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: 'Blog updated successfully',
+        message: "Blog updated successfully",
         data: result,
     });
 }));
@@ -59,7 +60,7 @@ const deleteBlog = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: 'Blog deleted successfully',
+        message: "Blog deleted successfully",
         data: result,
     });
 }));
