@@ -10,6 +10,7 @@ const experienceSchema = new mongoose_1.Schema({
     logo: {
         type: String,
         required: true,
+        default: "",
     },
     company: {
         type: String,

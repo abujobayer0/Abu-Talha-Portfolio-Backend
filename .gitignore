@@ -64,3 +64,4 @@ nodemon-debug.log
 # Uploads (optional - uncomment if your app stores files locally)
 # /uploads
 .vercel
+.qodo

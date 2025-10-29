@@ -10,6 +10,7 @@ const experienceSchema = new Schema<TExperience>(
     logo: {
       type: String,
       required: true,
+      default: "",
     },
     company: {
       type: String,
